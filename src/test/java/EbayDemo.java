@@ -8,6 +8,12 @@ public class EbayDemo {
 
     public static void main(String[] args) throws InterruptedException {
 
+        //newTabbedWindowTest();
+        newSeparateWindowTest();
+    }
+
+    public static void newTabbedWindowTest() throws InterruptedException {
+
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.manage().window().maximize();
 
@@ -31,9 +37,10 @@ public class EbayDemo {
                 driver.switchTo().window(window);
             }
         }
-
         System.out.println(driver.getTitle());
+    }
 
+    public static void newSeparateWindowTest() throws InterruptedException {
 
     }
 }
