@@ -42,5 +42,18 @@ public class EbayDemo {
 
     public static void newSeparateWindowTest() throws InterruptedException {
 
+        WebDriver driver = WebDriverManager.chromedriver().create();
+        driver.manage().window().maximize();
+
+        driver.manage().deleteAllCookies();
+        driver.get("https://demo.automationtesting.in/Windows.html");
+
+        String parentWindow = driver.getWindowHandle();
+
+        driver.findElement(By.xpath("//li/a[text()='Open New Seperate Windows']")).click();
+
+        driver.findElement(By.xpath("//div[@id='Seperate']/button[contains(text(),'click')]")).click();
+        Thread.sleep(2000);
+
     }
 }
