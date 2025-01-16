@@ -55,5 +55,21 @@ public class EbayDemo {
         driver.findElement(By.xpath("//div[@id='Seperate']/button[contains(text(),'click')]")).click();
         Thread.sleep(2000);
 
+        System.out.println(driver.getTitle());
+
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String window : windowHandles){
+            if (window.contains(parentWindow)){
+
+            }else {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+        System.out.println(driver.getTitle());
+        driver.close();
+        driver.switchTo().window(parentWindow);
+        System.out.println(driver.getTitle());
+
     }
 }
