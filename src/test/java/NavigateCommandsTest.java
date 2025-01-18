@@ -29,6 +29,5 @@ public class NavigateCommandsTest {
         System.out.println("5 : " + driver.getTitle());
 
         driver.quit();
-
     }
 }
