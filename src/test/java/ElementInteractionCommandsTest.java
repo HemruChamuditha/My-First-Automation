@@ -21,11 +21,13 @@ public class ElementInteractionCommandsTest {
 
         driver.findElement(By.xpath("//div[@class='gh-search-input__wrap']/input[@class='gh-search-input gh-tb ui-autocomplete-input']")).clear();
         driver.findElement(By.cssSelector("input[aria-label=\"Apple Watch Series SE\"]")).click();
-        driver.findElement(By.cssSelector("input[aria-label=\"Apple Watch Series 7\"]")).click();
 
         List<WebElement> elements = driver.findElements(By.xpath("//div[@class='s-item__title']/span[@role='heading']"));
         for (WebElement element : elements) {
-            System.out.println(element.getText());
+
+            if (element.getText().contains("Apple Watch SE 40mm 44mm GPS + WiFi + Cellular Pink Gold Gray Silver Smart Watch")){
+                System.out.println("Yes this is contain in the webpage : " + element.getText());
+            }
         }
     }
 }
