@@ -1,6 +1,10 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -8,7 +12,20 @@ public class WaitCommandsTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        implicitWaitMethod();
+//        implicitWaitMethod();
+        explicitWaitMethod();
+    }
+
+    private static void explicitWaitMethod() throws InterruptedException {
+        WebDriver driver = WebDriverManager.chromedriver().create();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/dynamic-properties");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement enableAfter = wait.until(ExpectedConditions.elementToBeClickable(By.id("enableAfter")));
+        System.out.println(enableAfter.getText());
+        enableAfter.click();
+
     }
 
     private static void implicitWaitMethod() throws InterruptedException {
